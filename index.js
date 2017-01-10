@@ -16,7 +16,19 @@ app.get('/api/', function (req, res) {
         return res.end('' + err)
       }
       try {
-        let geoJSON = transform.transformToGeoJSON(apiRes.body.items)
+        
+        let data = apiRes.body
+        if (data.result) {
+          data = data.result
+        }
+        if (data.items) {
+          data = data.items
+        }
+        if (data.item) {
+          data = data.item
+        }
+
+        let geoJSON = transform.transformToGeoJSON(data)
         res.end(JSON.stringify(geoJSON))
       } catch (e) {
         res.status(500)
