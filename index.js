@@ -1,7 +1,6 @@
 // Transform data from JSON to GeoJSON based on standard properties
 import transform from './transform' // Transform function
 import superAgent from 'superagent' // Load data from the API
-import config from './config' // Load data from the API
 var express = require('express')
 
 const port = process.env.PORT ? process.env.PORT : 3000
